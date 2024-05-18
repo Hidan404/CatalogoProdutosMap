@@ -16,5 +16,13 @@ public class EstoqueProdutos {
         System.out.println(produtos);
     }
 
-    
+    public double calcularValorTotalEstoque(){
+        double valorTotal = 0;
+        if(!produtos.isEmpty()){
+            for (Produto p : produtos.values()) {
+                valorTotal = p.getQuantidade() *p.getPreco();
+            }
+        }
+        return valorTotal;
+    }
 }
