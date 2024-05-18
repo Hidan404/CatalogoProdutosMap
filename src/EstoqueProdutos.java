@@ -20,9 +20,23 @@ public class EstoqueProdutos {
         double valorTotal = 0;
         if(!produtos.isEmpty()){
             for (Produto p : produtos.values()) {
-                valorTotal = p.getQuantidade() *p.getPreco();
+                valorTotal+= p.getQuantidade() *p.getPreco();
             }
         }
         return valorTotal;
+    }
+
+    public Produto obterProdutoMaisCaro(){
+        Produto  produtoMaisCaro = null;
+        double maiorPreco = Double.MIN_VALUE;
+
+        if(!produtos.isEmpty()){
+            for (Produto p : produtos.values()) {
+                if(p.getPreco() > maiorPreco){
+                    produtoMaisCaro = p;
+                }
+            }
+        }
+        return produtoMaisCaro;
     }
 }
